@@ -1,0 +1,17 @@
+.loginContainer {
+    font-size: 1rem;
+    font-family: Poppins-Medium;
+    position: relative;
+    text-decoration: none;
+    color: black; 
+    text-align: center;
+    background: #EAF5F8;
+    padding: 5rem; /* Padding to text */
+    height: auto;
+    min-height: 61rem; /* Hhight of background page*/
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(../../../public/fonts/Poppins-Medium.ttf);
+}
