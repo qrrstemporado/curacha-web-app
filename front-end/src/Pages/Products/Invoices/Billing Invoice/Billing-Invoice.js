@@ -12,7 +12,7 @@ const Billing = () => {
   const [paperSize, setPaperSize] = useState('');
   const [numberOfPly, setNumberOfPly] = useState('');
   const [paperType, setPaperType] = useState('');
-  const [colorPrinting, setColorPrinting] = useState(false);
+  const [colorPrinting, setColorPrinting] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleQuantityChange = (event) => {
@@ -41,39 +41,133 @@ const Billing = () => {
   };
 
   const handleColorPrintingChange = (event) => {
-    const newColorPrinting = event.target.checked;
+    const newColorPrinting = event.target.value;
     setColorPrinting(newColorPrinting);
   };
 
-  let additionalCost = 0;
+  const calculateTotal = () => {
+    // Step 1: Calculate totalSheets
+    let totalSheets = quantity * 50;
+  
+    if (size === "1/2") {
+      totalSheets /= 2;
+    } else if (size === "1/4") {
+      totalSheets /= 4;
+    }
 
-  if (paperType === 'Carbonless Paper' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 300;
-  } else if (paperType === 'Carbonless Paper' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 370;
-  } else if (paperType === 'Bond Paper' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 180;
-  } else if (paperType === 'Bond Paper' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 200;
-  } else if (paperType === 'Colored Bond' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 230;
-  } else if (paperType === 'Colored Bond' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 260;
-  } else if (paperType === 'Onion Skin' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 160;
-  } else if (paperType === 'Onion Skin' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 180;
-  } else if (paperType === 'Newsprint (white)' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 160;
-  } else if (paperType === 'Newsprint (white)' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 190;
-  } else if (paperType === 'Newsprint (colored)' && paperSize === 'Short Size (8.5 x 11)') {
-    additionalCost = 165;
-  } else if (paperType === 'Newsprint (colored)' && paperSize === 'Long Size (8.5 x 13)') {
-    additionalCost = 195;
+    // Step 2: Calculate totalReams
+    const totalReams = Math.ceil(totalSheets / 500) + 1;
+    
+    // Step 3: Calculate totalPaperCost based on selected options
+    let costPerReam;
+    let totalPaperCost = 0;
+  
+    if (paperType === "Carbonless Paper") {
+      if (paperSize === "Short Size (8.5 x 11)") {
+        costPerReam = 300;
+      } else if (paperSize === "Long Size (8.5 x 13)") {
+        costPerReam = 370;
+      }
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        const plyCost = ply === 1 ? costPerReam : costPerReam + 30;
+        totalPaperCost += plyCost * totalReams;
+      }
+    } else if (paperType === "Bond Paper") {
+      costPerReam = paperSize === "Short Size (8.5 x 11)" ? 180 : 200;
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        totalPaperCost += costPerReam * totalReams;
+      }
+    } else if (paperType === "Colored Bond") {
+      costPerReam = paperSize === "Short Size (8.5 x 11)" ? 230 : 260;
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        totalPaperCost += costPerReam * totalReams;
+      }
+    } else if (paperType === "Onion Skin") {
+      if (paperSize === "Short Size (8.5 x 11)") {
+        costPerReam = 180;
+      } else if (paperSize === "Long Size (8.5 x 13)") {
+        costPerReam = 200;
+      }
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        const plyCost = ply === 1 ? costPerReam : costPerReam - 20;
+        totalPaperCost += plyCost * totalReams;
+      }
+    } else if (paperType === "Newsprint (white)") {
+      costPerReam = paperSize === "Short Size (8.5 x 11)" ? 160 : 190;
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        totalPaperCost += costPerReam * totalReams;
+      }
+    } else if (paperType === "Newsprint (colored)") {
+      costPerReam = paperSize === "Short Size (8.5 x 11)" ? 165 : 195;
+      for (let ply = 1; ply <= numberOfPly; ply++) {
+        totalPaperCost += costPerReam * totalReams;
+      }
+    }
+
+    // Step 4: Calculate totalRunning
+    let totalRunning = totalSheets * numberOfPly;
+
+    // Step 5: Determine additionalColor based on colorPrinting option
+    let additionalColor = 0;
+
+    if (colorPrinting === "1 color") {
+      additionalColor = 1;
+    } else if (colorPrinting === "2 color") {
+      additionalColor = 2;
+    } else if (colorPrinting === "3 color") {
+      additionalColor = 3;
+    }
+
+    // Step 6: Calculate additionalRunning
+    let additionalRunning = additionalColor * totalSheets;
+
+    // Step 7: Calculate overallRunning
+    let overallRunning = totalRunning + additionalRunning;
+
+    // Step 8: Determine totalAdditionalRunning based on overallRunning
+    let totalAdditionalRunning = 0;
+
+    if (overallRunning <= 1000) {
+      totalAdditionalRunning = 400;
+    } else {
+      const succeedingRunning = (Math.ceil((overallRunning - 1000) / 1000)+1) * 200;
+      totalAdditionalRunning = 400 + succeedingRunning;
+    }
+
+    // Step 9: Determine numberOfCTP based on colorPrinting option
+    let numberOfCTP = 1;
+
+    if (colorPrinting === "1 color") {
+      numberOfCTP = 2;
+    } else if (colorPrinting === "2 color") {
+      numberOfCTP = 3;
+    } else if (colorPrinting === "3 color") {
+      numberOfCTP = 4;
+    }
+
+    // Step 10: Calculate totalCTPCost
+    const totalCTPCost = numberOfCTP * 150;
+
+    // Calculate totalCost by adding all components
+    const totalCost = totalPaperCost + totalAdditionalRunning + totalCTPCost + 50 + 700;
+
+    return totalCost;
+  };
+  
+  if (quantity === '' || size === '' || paperSize === '' || numberOfPly === '' || paperType === '' || colorPrinting === '') {
+    // Set other variables to 0 when required fields are empty
+    var vatable = 0;
+    var vat = 0;
+    var total = 0;
+    var pricePerBooklet = 0;
+  } else {
+    // Calculate other variables when required fields have values
+    var totalCost = calculateTotal();
+    vatable = totalCost * 1.7;
+    vat = vatable * 0.12;
+    total = vatable + vat;
+    pricePerBooklet = total / quantity;
   }
-
-  const total = quantity ? quantity * additionalCost : 0;
 
   const images = [billing, half1, forth1];
 
@@ -176,23 +270,37 @@ const Billing = () => {
 
             <div className="input-group">
               <label htmlFor="color-printing">Color Printing:</label>
-              <input
+              <select
                 className="input-box"
-                type="checkbox"
                 id="color-printing"
-                checked={colorPrinting}
+                value={colorPrinting}
                 onChange={handleColorPrintingChange}
-              />
+              >
+                <option value="">Select Color Printing</option>
+                <option value="Black and White">Black and White</option>
+                <option value="1 color">1 additional color</option>
+                <option value="2 color">2 additional colors</option>
+                <option value="3 color">3 additional colors</option>
+              </select>
             </div>
 
             <div className="total-container">
-              <label htmlFor="unit-price" className="align-right">Unit Price: </label>
-              <span className="total-amount align-right">₱{additionalCost.toFixed(2)}</span>
+              <label htmlFor="vatable-cost" className="align-right">VATable Cost: </label>
+              <span className="vatable-cost align-right">₱{vatable.toFixed(2)}</span>
             </div>
             <div className="total-container">
-              <span className="total-label">Total: </span>
-              <span className="total-amount">₱{total.toFixed(2)}</span>
+              <label htmlFor="vat-amount" className="align-right">VAT Amount (12%): </label>
+              <span className="vat-amount align-right">₱{vat.toFixed(2)}</span>
             </div>
+            <div className="total-container">
+              <label htmlFor="total-amount" className="align-right">Total Amount: </label>
+              <span className="total-amount align-right">₱{total.toFixed(2)}</span>
+            </div>
+            <div className="total-container">
+              <label htmlFor="price-per-booklet" className="align-right">Price per Booklet: </label>
+              <span className="price-per-booklet align-right">₱{pricePerBooklet.toFixed(2)}</span>
+            </div>
+
           </div>
         </div>
       </div>
