@@ -107,6 +107,7 @@ const ReqQuote = () => {
                   value={formData.productSelection}
                   onChange={handleChange}
                 >
+                  <option value=" "></option>
                   <option value="Delivery Receipt">Delivery Receipt</option>
                   <option value="Official Receipt">Official Receipt</option>
                   <option value="Collection Receipt">Collection Receipt</option>
@@ -130,13 +131,20 @@ const ReqQuote = () => {
             <div className="form-group">
               <label htmlFor="size">Size:</label>
               <div className="input-box">
-                <input
-                  type="number"
+                <select
                   id="size"
                   name="size"
                   value={formData.size}
                   onChange={handleChange}
-                />
+                >
+                  <option value=" "></option>
+                  <option value="Short Paper (8.5 x 11)">
+                    Short Paper 8.5 x 11
+                  </option>
+                  <option value="Long Paper (8.5 x 13)">
+                    Long Paper 8.5 x 13
+                  </option>
+                </select>
               </div>
             </div>
             <div className="form-group">
@@ -154,13 +162,19 @@ const ReqQuote = () => {
             <div className="form-group">
               <label htmlFor="paperType">Paper Type:</label>
               <div className="input-box">
-                <input
-                  type="text"
+                <select
                   id="paperType"
                   name="paperType"
                   value={formData.paperType}
                   onChange={handleChange}
-                />
+                >
+                  <option value=" "></option>
+                  <option value="Bond Paper">Official Receipt</option>
+                  <option value="Colored Bond">Collection Receipt</option>
+                  <option value="Onion Skin">Billing Invoice</option>
+                  <option value="Newsprint(white)">Newsprint White</option>
+                  <option value="Newsprint(colored)"> Newsprint Colored</option>
+                </select>
               </div>
             </div>
             <div className="form-group">
