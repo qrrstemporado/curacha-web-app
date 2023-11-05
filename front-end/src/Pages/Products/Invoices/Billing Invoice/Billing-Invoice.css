@@ -111,8 +111,25 @@ label,
 .red-title {
   color: rgb(193, 28, 28);
   margin-left: 3.2rem;
-  
 }
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-right: 5px;
+}
+
+.checkbox-label, .checkbox-input {
+  flex: 1;
+}
+
+.checkbox-input {
+  padding: 0;
+}
+
 @font-face {
   font-family: Poppins-Bold;
   src: url(../../../../../public/fonts/Poppins-Bold.ttf);
