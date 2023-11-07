@@ -169,11 +169,11 @@ const ReqQuote = () => {
                   onChange={handleChange}
                 >
                   <option value=" "></option>
-                  <option value="Bond Paper">Official Receipt</option>
-                  <option value="Colored Bond">Collection Receipt</option>
-                  <option value="Onion Skin">Billing Invoice</option>
-                  <option value="Newsprint(white)">Newsprint White</option>
-                  <option value="Newsprint(colored)"> Newsprint Colored</option>
+                  <option value="Bond Paper">Bond paper</option>
+                  <option value="Colored Bond">Colored Bond</option>
+                  <option value="Onion Skin">Onion Skin</option>
+                  <option value="Newsprint(white)">Newsprint(white)</option>
+                  <option value="Newsprint(colored)"> Newsprint(colored)</option>
                 </select>
               </div>
             </div>
