@@ -40,7 +40,7 @@ const Signup = () => {
         <div className="signupFormContainer">
             <div className="left">
                 <h1>Welcome Back</h1>
-                <Link to='/front-end/src/components/Login/Login.js'>
+                <Link to='/login'>
                     <button type='button' className='white-btn'>
                         Sign in
                     </button>

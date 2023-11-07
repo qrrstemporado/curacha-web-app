@@ -5,7 +5,8 @@ import App from './App';
 import Quote from './Pages/Quote/Quote';
 import Items from './Pages/Items/Items';
 import Services from './Pages/Services/Services';
-import Login from './Pages/Login/Login';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup'; // Import the Signup component
 import Profile from './Pages/Profile/Profile';
 import Billing from './Pages/Products/Invoices/Billing Invoice/Billing-Invoice';
 import Cash from './Pages/Products/Invoices/Cash Invoice/Cash-Invoice';
@@ -14,7 +15,6 @@ import Collection from './Pages/Products/Receipts/Collection Receipts/Collection
 import Official from './Pages/Products/Receipts/Official Receipts/Official-Receipt';
 import Delivery from './Pages/Products/Receipts/Delivery Receipts/Delivery-Receipt';
 import Forms from './Pages/Products/Forms/Forms';
-
 
 const router = createBrowserRouter([
   {
@@ -36,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Login />,
+  },
+  {
+    path: "signup", // Add a route for Sign Up
+    element: <Signup />,
   },
   {
     path: "profile",
@@ -69,7 +73,6 @@ const router = createBrowserRouter([
     path: "forms",
     element: <Forms/>,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
