@@ -107,7 +107,6 @@ const ReqQuote = () => {
                   value={formData.productSelection}
                   onChange={handleChange}
                 >
-                  <option value=" "></option>
                   <option value="Delivery Receipt">Delivery Receipt</option>
                   <option value="Official Receipt">Official Receipt</option>
                   <option value="Collection Receipt">Collection Receipt</option>
@@ -131,20 +130,13 @@ const ReqQuote = () => {
             <div className="form-group">
               <label htmlFor="size">Size:</label>
               <div className="input-box">
-                <select
+                <input
+                  type="number"
                   id="size"
                   name="size"
                   value={formData.size}
                   onChange={handleChange}
-                >
-                  <option value=" "></option>
-                  <option value="Short Paper (8.5 x 11)">
-                    Short Paper 8.5 x 11
-                  </option>
-                  <option value="Long Paper (8.5 x 13)">
-                    Long Paper 8.5 x 13
-                  </option>
-                </select>
+                />
               </div>
             </div>
             <div className="form-group">

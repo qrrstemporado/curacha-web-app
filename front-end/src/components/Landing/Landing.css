@@ -1,115 +1,117 @@
 .intro-container {
-    height: 70vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow-y: auto; /* Added `overflow-y: auto` to allow the content to scroll vertically */
 }
 
 .background-image {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
 }
 
 .rectangle {
-    max-width: 70rem;
-    width: 30rem;
-    height: 20rem;
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    position: relative;
-    margin-left: 70px; 
+  max-width: 70rem;
+  width: 30rem;
+  height: 20rem;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  position: relative;
+  margin-left: 70px; 
 
 }
 
 @font-face {
-    font-family: Poppins-Bold;
-    src: url(../../../public/fonts/Poppins-Bold.ttf);
+  font-family: Poppins-Bold;
+  src: url(../../../public/fonts/Poppins-Bold.ttf);
 }
 
 @font-face {
-    font-family: Poppins-Regular;
-    src: url(../../../public/fonts/Poppins-Regular.ttf);
+  font-family: Poppins-Regular;
+  src: url(../../../public/fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
-    font-family: Poppins-Medium;
-    src: url(../../../public/fonts/Poppins-Medium.ttf);
+  font-family: Poppins-Medium;
+  src: url(../../../public/fonts/Poppins-Medium.ttf);
 }
 
 
 .rectangle h1 {
-    color: black;
-    font-size: 2rem;
-    font-family: Poppins-Bold;
-    font-weight: 700;
-    line-height: 64px;
-    word-wrap: break-word;
-    margin-left: 2rem; 
-    margin-top: 1rem; 
+  color: black;
+  font-size: 2rem;
+  font-family: Poppins-Bold;
+  font-weight: 700;
+  line-height: 64px;
+  word-wrap: break-word;
+  margin-left: 2rem;
+  margin-top: 1rem;
 }
 
 .rectangle h2 {
-    color: rgba(0, 0, 0, 0.60);
-    font-size: 16px;
-    font-family: Poppins-Regular;
-    font-weight: 400;
-    line-height: 22px;
-    word-wrap: break-word;
-    margin-left: 2rem; 
-    margin-right: 1rem;
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 16px;
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  line-height: 22px;
+  word-wrap: break-word;
+  margin-left: 2rem;
+  margin-right: 1rem;
 }
 
 .quote-button {
-    color: white;
-    font-size: 16px;
-    font-family: Poppins-Medium;
-    font-weight: 500;
-    word-wrap: break-word;
-    background: #C52D2A;
-    padding: 16px 54px;
-    border-radius: 62px;
-    margin-left: 2rem; 
-    margin-top: 1rem; 
-    border: none;
-    cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-family: Poppins-Medium;
+  font-weight: 500;
+  word-wrap: break-word;
+  background: #C52D2A;
+  padding: 16px 54px;
+  border-radius: 62px;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
 }
 
 .quote-button:hover {
-    background: #b24946; 
+  background: #b24946;
 }
 
 .services-container {
-    height: 165vh;
-    width: 100vw;
-    align-items: center;
-    position: relative;
-    margin-left: 80px; 
+  height: auto; /* Set the height to auto so that the content can flow naturally */
+  width: 100vw;
+  align-items: center;
+  position: relative;
+  margin-left: 80px;
+  overflow-y: auto; /* Added `overflow-y: auto` to allow the content to scroll vertically */
 }
 
 .services-container h1 {
-    color: #C52D2A;
-    font-size: 52px;
-    font-family: Poppins-Bold;
-    font-weight: 700;
-    word-wrap: break-word;
-    margin-top: 60px; 
+  color: #C52D2A;
+  font-size: 52px;
+  font-family: Poppins-Bold;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-top: 60px;
 }
 
 .services-container p {
-     color: #333333;
-     font-size: 20px;
-     font-family: Poppins-Regular;
-     font-weight: 500;
-     line-height: 24px;
-     word-wrap: break-word;
+  color: #333333;
+  font-size: 20px;
+  font-family: Poppins-Regular;
+  font-weight: 500;
+  line-height: 24px;
+  word-wrap: break-word;
 }
 
 .product-container, .product-container2 {
@@ -118,19 +120,21 @@
   margin-left: -30px; /* margin to the left (-) */
 }
 
-.product1, .product2, .product3, .product4, .product5, .product6 {                 /*box*/  
+.product1, .product2, .product3, .product4, .product5, .product6 {
+  /*box*/
   width: 29.5%; /*one-third of the screen width */
   background: #F4F5F7;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   padding: 15px;
-  margin-left: 30px; 
+  margin-left: 30px;
   margin-bottom: 2rem;
 }
 
-.product1 img, .product2 img, .product3 img, .product4 img, .product5 img, .product6 img {   /*image*/  
-    width: 100%;
-    height: 70%;
-  }
+.product1 img, .product2 img, .product3 img, .product4 img, .product5 img, .product6 img {
+  /*image*/
+  width: 100%;
+  height: 70%;
+}
 
 .product1 h3, .product2 h3, .product3 h3, .product4 h3, .product5 h3, .product6 h3 {
   font-size: 20px;
@@ -141,68 +145,82 @@
   margin-top: 15px;
 }
 
-.product1 p, .product2 p, .product3 p, .product4 p, .product5 p, .product6 p  {
+.product1 p, .product2 p, .product3 p, .product4 p, .product5 p, .product6 p {
   font-size: 16px;
   color: #666666;
   font-family: Poppins-Regular;
   font-weight: 400;
 }
 
-
 .create-button {
-    width: 50%;
-    padding: 16px 54px;
-    background: #C52D2A;
-    border-radius: 62px;
-    color: white;
-    font-size: 16px;
-    font-family: Poppins-Medium;
-    font-weight: 500;
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
+  width: 50%;
+  padding: 16px 54px;
+  background: #C52D2A;
+  border-radius: 62px;
+  color: white;
+  font-size: 16px;
+  font-family: Poppins-Medium;
+  font-weight: 500;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
 .create-button:hover {
-    background: #b24946; 
+  background: #b24946;
 }
 
 @media (max-width: 768px) {
-    .intro-container {
-      height: auto; /* Set the height to auto to allow the content to flow naturally */
-      width: auto;
-    }
-  
-    .rectangle {
-      width: 60%; /* Set the width to a higher percentage to take up more space on smaller screens */
-      margin-left: 5%; /* Center the rectangle horizontally */
-      margin-right: 5%;
-      height: auto;
-      margin-top: 4rem;
-      
-    }
-  
-    .background-image {
-      height: 25rem; /* Set a fixed height for the background image on smaller screens */
-    }
-    .rectangle h1 {
-        font-size: 0.65rem;
-        margin-top: -0.5rem; 
-        margin-right: 0.2rem;
-        margin-left: 1rem;
-    }
-    .rectangle h2 {
-        font-size: 0.4rem;
-        margin-top: -1.5rem; 
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-    .quote-button {
-        font-size: 0.4rem;
-        height: auto;
-        width: auto;
-        margin-top: 0.1rem ;
-        margin-bottom: 0.5rem ;
-    }
+  .intro-container {
+    height: auto;
+    width: auto;
   }
 
+  .rectangle {
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+  }
+
+  .background-image {
+    height: 25rem;
+  }
+
+  .rectangle h1 {
+    font-size: 0.65rem;
+    margin-top: -0.5rem;
+    margin-right: 0.2rem;
+    margin-left: 1rem;
+  }
+
+  .rectangle h2 {
+    font-size: 0.4rem;
+    margin-top: -1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .quote-button {
+    font-size: 0.4rem;
+    height: auto;
+    width: auto;
+    margin-top: 0.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .services-container {
+    height: auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .rectangle h1 {
+    font-size: 1.2rem;
+  }
+
+  .rectangle h2 {
+    font-size: 1rem;
+  }
+}

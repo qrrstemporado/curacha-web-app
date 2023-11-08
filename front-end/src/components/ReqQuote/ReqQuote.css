@@ -1,5 +1,5 @@
 .quote-box {
-  font-family: Poppins-Medium;
+  font-family: 'Poppins-Medium', sans-serif;
   width: 500px;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -15,6 +15,7 @@
 .tab {
   padding: 10px;
   cursor: pointer;
+  color: #000;
 }
 
 .tab.active {
@@ -25,7 +26,7 @@
 .quote-tab {
   margin-top: 20px;
   font-size: 10px;
-  color: 
+  color: #000; /* Add a color value here */
 }
 
 .quote-form {
@@ -33,11 +34,10 @@
   flex-direction: column;
 }
 
-/* Add a margin-bottom to the form group so that it has a bit of space below it. */
 .form-group {
   display: flex;
   margin-bottom: 20px;
-  font-family: Poppins-Medium;
+  font-family: 'Poppins-Medium', sans-serif;
   font-weight: bold;
   margin-right: 20px;
   width: 100%;
@@ -64,7 +64,7 @@
 .ply-change {
   display: flex;
   margin-bottom: 20px;
-  font-family: Poppins-Medium;
+  font-family: 'Poppins-Medium', sans-serif;
   font-weight: bold;
   margin-right: 20px;
   margin-left: 10px;
@@ -78,44 +78,39 @@
   justify-content: center;
   margin-right: 10px;
   font-weight: bold;
-
-  /* Change the font size of the label to be a bit smaller. */
   font-size: 16px;
 }
 
 .input-box {
   flex: 2;
   width: 300px;
+  border: none;
 }
 
-/* Change the width of the select box to be a bit narrower. */
+.input-box[type = "checkbox"] {
+ border: none;
+}
+
 .input-box select {
   width: 80%;
-}
-
-/* Add a border-radius to the select box to make it look nicer. */
-.input-box select {
   border-radius: 3px;
-}
-
-/* Add a box-shadow to the select box to make it look more lifted off the page. */
-.input-box select {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  border: none;
 }
 
 .input-box input,
 .input-box select {
   background-color: white;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box;
+  border: none;
+ 
   padding: 5px;
   width: 100%;
 }
 
 .input-box select:focus {
   outline: none;
-  border: 1px solid #C52D2A;
+  
 }
 
 .form-group label, .input-box input, .input-box select {
@@ -131,7 +126,8 @@
 }
 
 .product-details-tab {
-  background-color: #F5F5F5;
+  background-color: white;
+  color: #000;
   border: 1px solid #fa8072;
   border-radius: 5px;
   padding: 20px;
