@@ -30,19 +30,19 @@ const Landing = () => {
         <div className="product1">
           <img src={billingInvoice} alt="Billing Invoice"/>
           <h3>Billing Invoice</h3>
-          <p>Description of Billing Invoice</p>
+          <p>Description of Product 1</p>
           <button className="create-button" onClick={() => { window.location.href = '/billing-invoice' }}>CREATE</button>
         </div>
         <div className="product2">
           <img src={salesInvoice} alt="Sales Invoice"/> 
           <h3>Sales Invoice</h3>
-          <p>Description of Sales Invoice</p>
+          <p>Description of Product 2</p>
           <button className="create-button" onClick={() => { window.location.href = '/sales-invoice' }}>CREATE</button>
         </div>
         <div className="product3">
           <img src={cashInvoice} alt="Cash Invoice"/>
           <h3>Cash Invoice</h3>
-          <p>Description of Cash Invoice</p>
+          <p>Description of Product 3</p>
           <button className="create-button" onClick={() => { window.location.href = '/cash-invoice' }}>CREATE</button>
         </div>
       </div>
@@ -64,6 +64,26 @@ const Landing = () => {
           <h3>Forms</h3>
           <p>Description of Product 6</p>
           <button className="create-button" onClick={() => { window.location.href = '/forms' }}>CREATE</button>
+        </div>
+      </div>
+      <div className="product-container3">
+        <div className="product7">
+          <img src={collectionReceipt} alt="Product 7"/>
+          <h3>Product 7</h3>
+          <p>Description of Product 7</p>
+          <button className="create-button" onClick={() => { window.location.href = '/' }}>CREATE</button>
+        </div>
+        <div className="product8">
+          <img src={officialReceipt} alt="Product 8"/> 
+          <h3>Product 8</h3>
+          <p>Description of Product 8</p>
+          <button className="create-button" onClick={() => { window.location.href = '/' }}>CREATE</button>
+        </div>
+        <div className="product9">
+          <img src={forms} alt="Product 9"/>
+          <h3>Product 9</h3>
+          <p>Description of Product 9</p>
+          <button className="create-button" onClick={() => { window.location.href = '/' }}>CREATE</button>
         </div>
       </div>
       </div>

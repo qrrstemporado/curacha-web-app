@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./ReqQuote.css";
+import NavBar from '../../components/Navbar/Navbar';
+import FooterPage from "../../Pages/FooterPage/FooterPage";
 
 const ReqQuote = () => {
   const [formData, setFormData] = useState({
@@ -56,6 +58,9 @@ const ReqQuote = () => {
   };
 
   return (
+    <div>
+    <NavBar />
+    <div className="itemsContainer">
     <div className="quote-box">
       <div className="tabs">
         <div
@@ -84,7 +89,6 @@ const ReqQuote = () => {
 
       {isRequestQuoteVisible && (
         <div className="quote-tab">
-          <h1>Request a Quote</h1>
           <form className="quote-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="title">Title:</label>
@@ -182,7 +186,7 @@ const ReqQuote = () => {
               </div>
             </div>
             <div className="ply-change">
-              <label htmlFor="colorForPly">Color Of Ply:</label>
+              <p htmlFor="colorForPly">Color Of Ply:</p>
               <div className="input-box">
                 <label>
                   <input
@@ -246,7 +250,7 @@ const ReqQuote = () => {
             </div>
             <div className="form-group">
               <label htmlFor="logo">Upload Logo:</label>
-              <div className="input-box">
+              <div className="input-upload-box">
                 <input
                   type="file"
                   id="logo"
@@ -274,6 +278,9 @@ const ReqQuote = () => {
           <p>Logo: {formData.logo ? formData.logo.name : "No logo uploaded"}</p>
         </div>
       )}
+            </div>
+    </div>
+    <FooterPage />
     </div>
   );
 };

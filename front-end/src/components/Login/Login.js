@@ -36,7 +36,15 @@ const Login = () => {
         <div className="loginContainer">
         <div className="loginFormContainer">
             <div className="left">
-              <form className='form-container' onSubmit={handleSubmit}>
+            <h1>New Here?</h1>
+                <Link to='/signup'>
+                    <button type='button' className='white-btn'>
+                        Sign Up
+                    </button>
+                </Link>
+                </div>
+            <div className="right">
+            <form className='form-container' onSubmit={handleSubmit}>
                 <h1>Login to Your Account</h1>
                 <input
                     type='email'
@@ -61,14 +69,6 @@ const Login = () => {
                     Sign In
                 </button>
               </form>
-            </div>
-            <div className="right">
-              <h1>New Here?</h1>
-                <Link to='/signup'>
-                    <button type='button' className='white-btn'>
-                        Sign Up
-                    </button>
-                </Link>
             </div>
         </div>
         </div>

@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App';
-import Quote from './Pages/Quote/Quote';
-import Items from './Pages/Items/Items';
 import Services from './Pages/Services/Services';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup'; // Import the Signup component
@@ -15,6 +13,7 @@ import Collection from './Pages/Products/Receipts/Collection Receipts/Collection
 import Official from './Pages/Products/Receipts/Official Receipts/Official-Receipt';
 import Delivery from './Pages/Products/Receipts/Delivery Receipts/Delivery-Receipt';
 import Forms from './Pages/Products/Forms/Forms';
+import ReqQuote from './components/ReqQuote/ReqQuote';
 
 const router = createBrowserRouter([
   {
@@ -23,11 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: "quote",
-    element: <Quote />,
-  },
-  {
-    path: "items",
-    element: <Items />,
+    element: <ReqQuote />,
   },
   {
     path: "services",

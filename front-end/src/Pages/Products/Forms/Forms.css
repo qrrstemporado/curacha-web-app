@@ -93,7 +93,7 @@ label,
 }
 
 .input-box {
-  border: 1px solid #ccc;
+  border: 1px solid #290000;
   padding: 10px;
   width: 100%;
   border-radius: 5px;
@@ -104,6 +104,12 @@ label,
 .input-group {
   flex: 2;
   padding: 10px;
+}
+
+
+
+.input-group input {
+  border: 1px solid #000000;
 }
 .product-info {
   width: 30%; /* Adjust the width as needed for the product information section */
@@ -127,6 +133,11 @@ label,
 @font-face {
   font-family: Poppins-Medium;
   src: url(../../../../public/fonts/Poppins-Medium.ttf);
+}
+
+.price-calc-container .input-box {
+  border: 1px solid #ccc;
+  width: 100%;
 }
 
 .image-container {
