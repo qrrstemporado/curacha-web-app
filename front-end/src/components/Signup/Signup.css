@@ -49,6 +49,20 @@
     border-bottom-right-radius: 10px;
 }
 
+.back-btn1 {
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+  }
+
 .form-container {
     display: flex;
     flex-direction: column;
