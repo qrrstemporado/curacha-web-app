@@ -80,6 +80,13 @@
 }
 
 
+.quote-order-title{
+    font-family: 'Poppins-Bold';
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+
+}
 .quote-detail {
   padding-top: 0.5rem;
   padding-left: 1rem;
@@ -90,3 +97,10 @@
   padding-right: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+hr {
+    
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1rem;
+  }

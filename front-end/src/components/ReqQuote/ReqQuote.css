@@ -10,7 +10,7 @@
 
 
 .quote-box {
-  font-family: 'Poppins-Medium', sans-serif;
+  font-family: 'Poppins-Medium';
   width: 80%;
   margin: 0 auto;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
@@ -43,7 +43,6 @@
 .tabs {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
   border-radius: 10px;
 }
 
@@ -62,7 +61,7 @@
 }
 
 .quote-tab {
-  margin-top: 20px;
+  margin-top: 1rem;
   font-size: 10px;
   color: #000; /* Add a color value here */
 }
@@ -75,9 +74,9 @@
 
 .form-group {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   font-family: 'Poppins-Medium', sans-serif;
-  margin-right: 20px;
+  margin-right: 1rem;
   width: 50%; /* Adjust this value as needed to control the width of the form group */
   justify-content: space-between; /* This will space out the label and input box */
   align-items: center; /* Vertically center align items in the flex container */
@@ -197,18 +196,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* This creates two columns of equal width */
   gap: 1rem; /* This sets the gap between the columns */
-  margin: 1rem; /* This adds some margin around the grid for spacing */
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .product-details-tab,
 .product-details-section {
   background-color: #fff;
-  padding: 20px;
+  padding: 1.5rem;
   border-radius: 8px;
   border: 1px solid #fa8072;
+  
 }
 
+.product-details-section {
+display: flex;
+justify-content: center;
+align-items: center;
+}
 .product-details-tab {
   background-color: white;
   color: #000;
@@ -216,12 +220,13 @@
   padding: 20px;
 }
 
+
 .product-details-tab label {
-  font-size: 20px;
-  margin-bottom: 10px;
-  font-weight: normal;
-  display: flex;
-  justify-content: left;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins-Bold';
+  color: #C52D2A;
 }
 
 .product-details-tab p {
@@ -265,3 +270,9 @@
   cursor: pointer;
   margin-top: 2rem;
 }
+
+.logo-image {
+  width: 25rem;
+  height: 25rem;
+}
+

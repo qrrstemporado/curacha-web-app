@@ -1,21 +1,24 @@
 import React from 'react';
 import NavBar from '../../components/Navbar/Navbar';
 import FooterPage from '../FooterPage/FooterPage';
-import './Profile.css';
+import './Admin.css';
 
-const Profile = () => {
+const AdminProfile = () => {
   return (
     <div>
       <NavBar />
       <div className="profileContainer">
         <div className="quote-container">
           <div className="quote-header">
-            <label>Welcome, Alexia Roque!</label>
-            <p>Email: roquealexia09@gmail.com</p>
+            <label>Welcome Back, Admin!</label>
           </div>
           <div className="quote-body">
             <div className="quote-section">
               <div className="quote-section-header">QUOTATION 1</div>
+              <div className="quote-detail">Name: Alexia Roque</div>
+              <div className="quote-detail">Email: roquealexia09@gmail.com</div>
+              <hr />
+
               <div className="quote-detail">Title: Q1</div>
               <div className="quote-detail">Product Selection: Delivery Receipt</div>
               <div className="quote-detail">Quantity: *</div>
@@ -41,6 +44,10 @@ const Profile = () => {
 
             <div className="quote-section">
               <div className="quote-section-header">QUOTATION 2</div>
+              <div className="quote-detail">Name: Leila Roque</div>
+              <div className="quote-detail">Email: qajmroque@gmail.com</div>
+              <hr />
+
               <div className="quote-detail">Title: Q2</div>
               <div className="quote-detail">Product Selection: Delivery Receipt</div>
               <div className="quote-detail">Quantity: *</div>
@@ -51,8 +58,9 @@ const Profile = () => {
               <div className="quote-detail">Color Printing: *</div>
               <div className="quote-detail">Color of Ply: *</div>
               <div className="quote-detail">Logo: *</div>
+          
               <div className="quote-price">
-              <span>VATable Cost: P134.50</span>
+                <span>VATable Cost: P134.50</span>
                 <br />
                 <span>VAT amount (12%): P13,450.00</span>
                 <br />
@@ -72,4 +80,4 @@ const Profile = () => {
   );
 }
 
-export default Profile;
+export default AdminProfile;

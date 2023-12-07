@@ -10,9 +10,10 @@ const ReqQuote = () => {
     quantity: "",
     size: "",
     noOfPly: "",
+    paperSize: "",
     paperType: "",
     colorPrinting: "",
-    logo: null,
+    logoPreview: '',
     colorForPly: [], // Use an array to store selected colors
   });
 
@@ -29,12 +30,20 @@ const ReqQuote = () => {
 
   const handleLogoUpload = (e) => {
     const file = e.target.files[0];
-    setFormData({
-      ...formData,
-      logo: file,
-    });
-  };
+    const reader = new FileReader();
 
+    reader.onloadend = () => {
+      setFormData({
+        ...formData,
+        logo: file,
+        logoPreview: reader.result
+      });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
   const handlePlyColorChange = (e) => {
     const { value, checked } = e.target;
     let selectedColors = [...formData.colorForPly];
@@ -56,6 +65,7 @@ const ReqQuote = () => {
     setIsRequestQuoteVisible(false);
     setIsProductDetailsVisible(true);
   };
+
 
   return (
     <div>
@@ -111,7 +121,7 @@ const ReqQuote = () => {
                   value={formData.productSelection}
                   onChange={handleChange}
                 >
-                  <option value=" "></option>
+                  <option value=" ">Select Product</option>
                   <option value="Delivery Receipt">Delivery Receipt</option>
                   <option value="Official Receipt">Official Receipt</option>
                   <option value="Collection Receipt">Collection Receipt</option>
@@ -157,6 +167,22 @@ const ReqQuote = () => {
                 />
               </div>
             </div>
+
+            <div className="form-group">
+                  <label htmlFor="paperSize">Paper Size:</label>
+                  <div className="input-box">
+                    <select
+                      id="paperSize"
+                      name="paperSize"
+                      value={formData.paperSize}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select Paper Size</option>
+                      <option value="Short Size (8.5 x 11)">Short Size (8.5 x 11)</option>
+                      <option value="Long Size (8.5 x 13)">Long Size (8.5 x 13)</option>
+                    </select>
+                  </div>
+                </div>
             <div className="form-group">
               <label htmlFor="paperType">Paper Type:</label>
               <div className="input-box">
@@ -166,7 +192,7 @@ const ReqQuote = () => {
                   value={formData.paperType}
                   onChange={handleChange}
                 >
-                  <option value=" "></option>
+                  <option value=" ">Select Paper Type</option>
                   <option value="Bond Paper">Bond paper</option>
                   <option value="Colored Bond">Colored Bond</option>
                   <option value="Onion Skin">Onion Skin</option>
@@ -268,31 +294,39 @@ const ReqQuote = () => {
             {isProductDetailsVisible && (
       <div className="product-details-container">
         <div className="product-details-tab">
-          <h2>Product Details</h2>
+          <label>Product Details</label>
           <p>Title: {formData.title}</p>
           <p>Product Selection: {formData.productSelection}</p>
           <p>Quantity: {formData.quantity}</p>
           <p>Size: {formData.size}</p>
           <p>No. Of Ply: {formData.noOfPly}</p>
+          <p>Paper Size: {formData.paperSize}</p>
           <p>Paper Type: {formData.paperType}</p>
           <p>Color Printing: {formData.colorPrinting}</p>
           <p>Color of Ply: {formData.colorForPly.join(", ")}</p>
-          <p>Logo: {formData.logo ? formData.logo.name : "No logo uploaded"}</p>
+          <p>Logo:{formData.logoPreview ? <img src={formData.logoPreview} alt="Uploaded Logo" className="logo-image" /> : "No logo uploaded"}</p>
         </div>
-    
-
+  
       <div className="product-details-section">
             {/* Pricing section from the image */}
             <div className="pricing-section">
               <p className="pricing-note">Note: Please be aware that the quoted price is an estimate and may be subject to changes.</p>
               <div className="pricing-details">
                 <div className="pricing-row">
-                  <span>Unit Price</span>
-                  <span>{formData.unitPrice || "$0.00"}</span>
+                  <span>VATable Cost</span>
+                  <span>{formData.vatableCost || "$0.00"}</span>
                 </div>
                 <div className="pricing-row">
-                  <span>Total</span>
+                  <span>VAT amount (12%)</span>
+                  <span>{formData.vatAmount || "$0.00"}</span>
+                </div>
+                <div className="pricing-row">
+                  <span>Total Amount</span>
                   <span>{formData.totalPrice || "$0.00"}</span>
+                </div>
+                <div className="pricing-row">
+                  <span>Price per Booklet</span>
+                  <span>{formData.unitPrice || "$0.00"}</span>
                 </div>
               </div>
               <button className="book-now-btn">Book Now</button>
