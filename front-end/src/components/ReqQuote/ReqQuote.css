@@ -16,11 +16,12 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
   background: #ffffff;
   border-radius: 10px;
-  padding: 3rem;
+  padding: 1rem; 
   align-self: center;
   margin-left: auto;
   margin-right: auto;
   height: auto;
+  min-height: 45rem; /* height of background page*/
 }
 
 
@@ -32,9 +33,9 @@
   color: black; 
   text-align: center;
   background: #EAF5F8;
-  padding: 5rem; /* Padding to text */
+  padding: 3rem; /* Padding to text */
   height: auto;
-  min-height: 50rem; /* height of background page*/
+  min-height:45rem; /* height of background page*/
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
 }
 
@@ -192,13 +193,27 @@
   align-self: center;
 }
 
+.product-details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* This creates two columns of equal width */
+  gap: 1rem; /* This sets the gap between the columns */
+  margin: 1rem; /* This adds some margin around the grid for spacing */
+  margin-top: 3rem;
+}
+
+.product-details-tab,
+.product-details-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #fa8072;
+}
+
 .product-details-tab {
   background-color: white;
   color: #000;
-  border: 1px solid #fa8072;
   border-radius: 5px;
   padding: 20px;
-  margin-top: 20px;
 }
 
 .product-details-tab label {
@@ -216,3 +231,37 @@
   justify-content: left;
 }
 
+.pricing-section {
+  padding: 5rem;
+
+  border-radius: 8px;
+  text-align: center;
+}
+
+.pricing-note {
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.pricing-details {
+  padding-top: 2rem;
+  font-size: 1rem;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.book-now-btn {
+  background-color: #d9534f;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 2rem;
+}

@@ -111,11 +111,13 @@ const ReqQuote = () => {
                   value={formData.productSelection}
                   onChange={handleChange}
                 >
+                  <option value=" "></option>
                   <option value="Delivery Receipt">Delivery Receipt</option>
                   <option value="Official Receipt">Official Receipt</option>
                   <option value="Collection Receipt">Collection Receipt</option>
                   <option value="Billing Invoice">Billing Invoice</option>
                   <option value="Sales Invoice">Sales Invoice</option>
+                  <option value="Forms">Forms</option>
                 </select>
               </div>
             </div>
@@ -263,8 +265,8 @@ const ReqQuote = () => {
           </form>
         </div>
       )}
-
-      {isProductDetailsVisible && (
+            {isProductDetailsVisible && (
+      <div className="product-details-container">
         <div className="product-details-tab">
           <h2>Product Details</h2>
           <p>Title: {formData.title}</p>
@@ -277,8 +279,30 @@ const ReqQuote = () => {
           <p>Color of Ply: {formData.colorForPly.join(", ")}</p>
           <p>Logo: {formData.logo ? formData.logo.name : "No logo uploaded"}</p>
         </div>
-      )}
+    
+
+      <div className="product-details-section">
+            {/* Pricing section from the image */}
+            <div className="pricing-section">
+              <p className="pricing-note">Note: Please be aware that the quoted price is an estimate and may be subject to changes.</p>
+              <div className="pricing-details">
+                <div className="pricing-row">
+                  <span>Unit Price</span>
+                  <span>{formData.unitPrice || "$0.00"}</span>
+                </div>
+                <div className="pricing-row">
+                  <span>Total</span>
+                  <span>{formData.totalPrice || "$0.00"}</span>
+                </div>
+              </div>
+              <button className="book-now-btn">Book Now</button>
             </div>
+          </div>
+        </div>
+      )}
+      </div>
+      
+
     </div>
     <FooterPage />
     </div>
