@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ReqQuote.css";
 import NavBar from '../../components/Navbar/Navbar';
 import FooterPage from "../../Pages/FooterPage/FooterPage";
+import { ceil } from "lodash";
 
 const ReqQuote = () => {
   const [formData, setFormData] = useState({
@@ -59,11 +60,121 @@ const ReqQuote = () => {
       colorForPly: selectedColors,
     });
   };
-
-  const handleSubmit = (e) => {
+  
+  const handleBookNow = async (e) => {
     e.preventDefault();
     setIsRequestQuoteVisible(false);
     setIsProductDetailsVisible(true);
+    
+    try {
+      // Make a POST request to your backend endpoint
+      const response = await fetch('http://localhost:4000/api/quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data); // Log the response from the server
+      } else {
+        console.error('Failed to submit quote');
+      }
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsRequestQuoteVisible(false);
+    setIsProductDetailsVisible(true);
+
+    if (!formData.vatableCost) {
+      calculateQuotation();
+    }
+
+    try {
+      // Make a POST request to your backend endpoint
+      const response = await fetch('http://localhost:4000/api/quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data); // Log the response from the server
+      } else {
+        console.error('Failed to submit quote');
+      }
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+    }
+  };
+
+  const calculateQuotation = () => {
+    const { quantity, size, noOfPly, } = formData; //paperSize, paperType, colorPrinting (assigned a value but never used)
+  
+    // Calculate Total Sheets
+    let totalSheets = quantity * 50;
+    if (size === "1/2") {
+      totalSheets /= 2;
+    } else if (size === "1/4") {
+      totalSheets /= 4;
+    }
+  
+    // Calculate Total Reams
+    const totalReams = ceil(totalSheets / 500) + 1;
+  
+    // Determine costPerReam based on paperType and paperSize (you need to define these values)
+    let costPerReam = 0;
+    // Add your logic here to set costPerReam based on paperType and paperSize
+  
+    // Calculate Total Paper Cost
+    const totalPaperCost = noOfPly * totalReams * costPerReam;
+  
+    // Determine additionalColor based on the selected colorPrinting option
+    let additionalColor = 0;
+    // Add your logic here to set additionalColor based on colorPrinting
+  
+    // Calculate Additional Running
+    const additionalRunning = additionalColor * totalSheets;
+  
+    // Calculate Overall Running
+    const overallRunning = quantity * 50 * noOfPly + additionalRunning;
+  
+    // Determine Total Additional Running
+    let totalAdditionalRunning = 0;
+    if (overallRunning <= 1000) {
+      totalAdditionalRunning = 400;
+    } else {
+      // Add your logic here to calculate succeedingRunning based on the exceeding sheets
+      // totalAdditionalRunning = calculateSucceedingRunning(overallRunning);
+    }
+  
+    // Determine Number of CTP (Computer to Plate) based on Color Printing
+    let numberOfCTP = 0;
+    // Add your logic here to set numberOfCTP based on colorPrinting
+  
+    // Calculate Total CTP Cost
+    const totalCTPCost = numberOfCTP * 150;
+  
+    // Calculate Total Cost
+    const totalCost = totalPaperCost + totalAdditionalRunning + totalCTPCost + 50 + 700;
+
+    // Update state with calculated values
+    setFormData({
+      ...formData,
+      vatableCost: `$${totalCost.toFixed(2)}`,
+      vatAmount: `$${(totalCost * 0.12).toFixed(2)}`,
+      totalPrice: `$${(totalCost * 1.12).toFixed(2)}`,
+      unitPrice: `$${(totalCost / quantity).toFixed(2)}`,
+    });
   };
 
 
@@ -329,7 +440,7 @@ const ReqQuote = () => {
                   <span>{formData.unitPrice || "$0.00"}</span>
                 </div>
               </div>
-              <button className="book-now-btn">Book Now</button>
+              <button className="book-now-btn"onClick={handleBookNow}>Book Now</button>
             </div>
           </div>
         </div>
