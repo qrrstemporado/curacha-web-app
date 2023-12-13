@@ -3,8 +3,8 @@ import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Collection-Receipt.css';
 import collection from '../../../../assets/collection-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import half1 from '../../../../assets/collection-one-half.svg';
+import forth1 from '../../../../assets/collection-one-fourth.svg';
 
 const Collection = () => {
   const [quantity, setQuantity] = useState('');

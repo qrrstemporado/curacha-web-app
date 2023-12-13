@@ -113,7 +113,7 @@ label,
 .red-title {
   color: rgb(193, 28, 28);
   margin-left: 3.2rem;
-  
+  margin-top: 1rem;
 }
 @font-face {
   font-family: Poppins-Bold;

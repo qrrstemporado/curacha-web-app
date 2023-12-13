@@ -3,8 +3,8 @@ import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Billing-Invoice.css';
 import billing from '../../../../assets/billing-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import half1 from '../../../../assets/billing-one-half.svg';
+import forth1 from '../../../../assets/billing-one-fourth.svg';
 
 const Billing = () => {
   const [quantity, setQuantity] = useState('');
@@ -193,7 +193,9 @@ const Billing = () => {
               <button className="nav-button right" onClick={handleNextImage}>&gt;</button>
             </div>
             <h1 className="red-title">Billing Invoice</h1>
-            <p className="description">DESCRIPTION OF THE PRODUCT</p>
+            <div className="description-container">
+            <p className="description">DESCRIPTION.</p>
+          </div>
           </div>
 
           <div className="price-calc-container">

@@ -3,8 +3,8 @@ import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Cash-Invoice.css';
 import cash from '../../../../assets/cash-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import half1 from '../../../../assets/cash-one-half.svg';
+import forth1 from '../../../../assets/cash-one-fourth.svg';
 
 const Cash = () => {
   const [quantity, setQuantity] = useState('');

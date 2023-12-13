@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Acknowledgement-Receipt.css';
-import delivery from '../../../../assets/delivery-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import delivery from '../../../../assets/acknowledgement-quote.svg';
+import half1 from '../../../../assets/acknowledgement-one-half.svg';
+import forth1 from '../../../../assets/acknowledgement-one-fourth.svg';
 
 const Acknowledgement = () => {
   const [quantity, setQuantity] = useState('');

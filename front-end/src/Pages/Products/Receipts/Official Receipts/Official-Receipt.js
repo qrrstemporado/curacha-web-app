@@ -3,8 +3,8 @@ import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Official-Receipt.css';
 import official from '../../../../assets/official-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import half1 from '../../../../assets/official-one-half.svg';
+import forth1 from '../../../../assets/official-one-fourth.svg';
 
 const Official = () => {
   const [quantity, setQuantity] = useState('');

@@ -3,8 +3,8 @@ import NavBar from '../../../../components/Navbar/Navbar';
 import FooterPage from '../../../FooterPage/FooterPage';
 import './Delivery-Receipt.css';
 import delivery from '../../../../assets/delivery-quote.svg';
-import half1 from '../../../../assets/one-half.svg';
-import forth1 from '../../../../assets/one-fourth.svg';
+import half1 from '../../../../assets/delivery-one-half.svg';
+import forth1 from '../../../../assets/delivery-one-fourth.svg';
 
 const Delivery = () => {
   const [quantity, setQuantity] = useState('');

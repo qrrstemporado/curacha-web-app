@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import NavBar from '../../../components/Navbar/Navbar';
 import FooterPage from '../../FooterPage/FooterPage';
-import './Forms.css';
-import forms from '../../../assets/forms-quote.svg';
-import forms2 from '../../../assets/forms-quote2.svg';
-import half1 from '../../../assets/one-half3.svg';
-import forth1 from '../../../assets/forms-one-fourth.svg';
+import './Job-Order.css';
+import delivery from '../../../assets/job-order-quote.svg';
+import half1 from '../../../assets/job-order-one-half.svg';
+import forth1 from '../../../assets/job-order-one-fourth.svg';
 
 
-
-const Forms = () => {
+const JobOrder = () => {
   const [quantity, setQuantity] = useState('');
   const [size, setSize] = useState('');
   const [paperSize, setPaperSize] = useState('');
@@ -172,7 +170,7 @@ const Forms = () => {
     pricePerBooklet = total / quantity;
   }
 
-  const images = [forms, forms2, half1, forth1];
+  const images = [delivery, half1, forth1];
 
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -187,7 +185,7 @@ const Forms = () => {
   return (
     <div>
       <NavBar />
-      <div className="formsContainer">
+      <div className="job-orderContainer">
         <div className="main-container">
           <div className="product-info">
             <div className="image-container">
@@ -195,7 +193,7 @@ const Forms = () => {
               <img src={images[currentImageIndex]} alt="Product" className="product-image" />
               <button className="nav-button right" onClick={handleNextImage}>&gt;</button>
             </div>
-            <h1 className="red-title">Forms</h1>
+            <h1 className="red-title">Job Order</h1>
             <p className="description">DESCRIPTION OF THE PRODUCT</p>
           </div>
 
@@ -312,4 +310,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default JobOrder;

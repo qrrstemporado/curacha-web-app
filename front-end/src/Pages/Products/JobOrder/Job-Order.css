@@ -10,7 +10,7 @@ label,
   font-family: Poppins-Regular;
 }
 
-.collectionContainer {
+.job-orderContainer {
     font-family: Poppins-Bold;
     position: relative;
     text-decoration: none;
@@ -117,7 +117,7 @@ label,
 }
 @font-face {
   font-family: Poppins-Bold;
-  src: url(../../../../../public/fonts/Poppins-Bold.ttf);
+  src: url(../../../../public/fonts/Poppins-Bold.ttf);
 }
 
 .description {
@@ -126,7 +126,7 @@ label,
 }
 @font-face {
   font-family: Poppins-Medium;
-  src: url(../../../../../public/fonts/Poppins-Medium.ttf);
+  src: url(../../../../public/fonts/Poppins-Medium.ttf);
 }
 
 .image-container {

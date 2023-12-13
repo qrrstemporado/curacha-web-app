@@ -23,6 +23,7 @@ label,
 }
 
 
+
 .main-container {
   display: flex;
   background-color: white;
@@ -54,11 +55,6 @@ label,
   width: 650px; /* Adjust the width as needed */
   height: 380px; /* Adjust the height as needed */
   border-radius: 10px;
-}
-
-.description {
-  margin-top: 20px;
-  font-size: medium;
 }
 
 .total-container {
@@ -109,24 +105,29 @@ label,
   padding: 20px;
 }
 
-.red-title {
-  color: rgb(193, 28, 28);
-  margin-left: 3.2rem;
-}
-
 @font-face {
   font-family: Poppins-Bold;
   src: url(../../../../../public/fonts/Poppins-Bold.ttf);
 }
 
-.description {
-  margin-top: 20px;
-  font-size: small;
-}
 @font-face {
   font-family: Poppins-Medium;
   src: url(../../../../../public/fonts/Poppins-Medium.ttf);
 }
+
+/* Modify the description styles and add a container for justification */
+.description-container {
+  display: flex;
+  justify-content: flex-start; /* Align to the start of the container */
+  width: 30rem;
+  height:5rem;
+}
+
+.description {
+  font-size: 100rem;
+}
+
+
 
 .image-container {
   display: flex;

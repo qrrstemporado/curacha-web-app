@@ -13,6 +13,7 @@ import Official from './Pages/Products/Receipts/Official Receipts/Official-Recei
 import Delivery from './Pages/Products/Receipts/Delivery Receipts/Delivery-Receipt';
 import Acknowledgement from './Pages/Products/Receipts/Acknowledgement Receipts/Acknowledgement-Receipt';
 import Forms from './Pages/Products/Forms/Forms';
+import JobOrder from './Pages/Products/JobOrder/Job-Order';
 import ReqQuote from './components/ReqQuote/ReqQuote';
 
 
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "forms",
     element: <Forms/>,
+  },
+  {
+    path: "job-order",
+    element: <JobOrder/>,
   },
 ]);
 
