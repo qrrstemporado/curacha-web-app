@@ -27,6 +27,31 @@
 }
 
 .quote-header {
+  position: relative;
+  height: 100%; /* Ensure the container has a height */
+}
+
+.email-text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+.logout-button {
+  position: absolute;
+  right: 10px; /* Adjust the right value as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333; /* Set the color similar to the email text */
+}
+
+.quote-header {
   font-family: 'Poppins-Medium';
   width: 100%;
   margin: 0 auto;
@@ -90,3 +115,4 @@
   padding-right: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
