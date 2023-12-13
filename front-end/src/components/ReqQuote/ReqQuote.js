@@ -170,10 +170,10 @@ const ReqQuote = () => {
     // Update state with calculated values
     setFormData({
       ...formData,
-      vatableCost: `$${totalCost.toFixed(2)}`,
-      vatAmount: `$${(totalCost * 0.12).toFixed(2)}`,
-      totalPrice: `$${(totalCost * 1.12).toFixed(2)}`,
-      unitPrice: `$${(totalCost / quantity).toFixed(2)}`,
+      vatableCost: `₱${totalCost.toFixed(2)}`,
+      vatAmount: `₱${(totalCost * 0.12).toFixed(2)}`,
+      totalPrice: `₱${(totalCost * 1.12).toFixed(2)}`,
+      unitPrice: `₱${(totalCost / quantity).toFixed(2)}`,
     });
   };
 
