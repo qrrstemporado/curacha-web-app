@@ -233,12 +233,15 @@ const ReqQuote = () => {
                   onChange={handleChange}
                 >
                   <option value=" ">Select Product</option>
-                  <option value="Delivery Receipt">Delivery Receipt</option>
-                  <option value="Official Receipt">Official Receipt</option>
-                  <option value="Collection Receipt">Collection Receipt</option>
                   <option value="Billing Invoice">Billing Invoice</option>
                   <option value="Sales Invoice">Sales Invoice</option>
+                  <option value="Billing Invoice">Cash Invoice</option>
+                  <option value="Delivery Receipt">Acknowledgement Receipt</option>
+                  <option value="Collection Receipt">Collection Receipt</option>
+                  <option value="Collection Receipt">Delivery Receipt</option>
+                  <option value="Official Receipt">Official Receipt</option>
                   <option value="Forms">Forms</option>
+                  <option value="Forms">Job Order</option>
                 </select>
               </div>
             </div>
@@ -255,17 +258,21 @@ const ReqQuote = () => {
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="size">Size:</label>
-              <div className="input-box">
-                <input
-                  type="number"
-                  id="size"
-                  name="size"
-                  value={formData.size}
-                  onChange={handleChange}
-                />
-              </div>
+            <label htmlFor="size">Size:</label>
+            <div className="input-box">
+              <select
+                id="size"
+                name="size"
+                value={formData.size}
+                onChange={handleChange}
+              >
+                <option value="">Select Size</option>
+                <option value="1 Whole">1 Whole</option>
+                <option value="1/2">1/2</option>
+                <option value="1/4">1/4</option>
+              </select>
             </div>
+          </div>
             <div className="form-group">
               <label htmlFor="noOfPly">No. Of Ply:</label>
               <div className="input-box">
