@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../../components/Navbar/Navbar';
 import FooterPage from '../FooterPage/FooterPage';
 import './Admin.css';
 
 const AdminProfile = () => {
+  const [quotes, setQuotes] = useState([]);
+
+  useEffect(() => {
+    // Fetch quotes from your backend API
+    const fetchQuotes = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/quote');
+        if (response.ok) {
+          const data = await response.json();
+          setQuotes(data);
+        } else {
+          console.error('Failed to fetch quotes');
+        }
+      } catch (error) {
+        console.error('Error fetching quotes:', error);
+      }
+    };
+
+    fetchQuotes();
+  }, []);
+
   return (
     <div>
       <NavBar />
@@ -13,71 +34,42 @@ const AdminProfile = () => {
             <label>Welcome Back, Admin!</label>
           </div>
           <div className="quote-body">
-            <div className="quote-section">
-              <div className="quote-section-header">QUOTATION 1</div>
-              <div className="quote-detail">Name: Alexia Roque</div>
-              <div className="quote-detail">Email: roquealexia09@gmail.com</div>
-              <hr />
-
-              <div className="quote-detail">Title: Q1</div>
-              <div className="quote-detail">Product Selection: Delivery Receipt</div>
-              <div className="quote-detail">Quantity: *</div>
-              <div className="quote-detail">Size: *</div>
-              <div className="quote-detail">No of Ply: *</div>
-              <div className="quote-detail">Paper Size: *</div>
-              <div className="quote-detail">Paper Type: *</div>
-              <div className="quote-detail">Color Printing: *</div>
-              <div className="quote-detail">Color of Ply: *</div>
-              <div className="quote-detail">Logo: *</div>
-          
-              <div className="quote-price">
-                <span>VATable Cost: P134.50</span>
-                <br />
-                <span>VAT amount (12%): P13,450.00</span>
-                <br />
-                <span>Total Amount: P134.50</span>
-                <br />
-                <span>Price per Booklet: P13,450.00</span>
-                <br />
+            {quotes.map((quote, index) => (
+              <div key={index} className="quote-section">
+                <div className="quote-section-header">QUOTATION {index + 1}</div>
+                <div className="quote-detail">Name: {quote.name}</div>
+                <div className="quote-detail">Email: {quote.email}</div>
+                <hr />
+                <div className="quote-detail">Title: {quote.title}</div>
+                <div className="quote-detail">Product Selection: {quote.productSelection}</div>
+                <div className="quote-detail">Quantity: {quote.quantity}</div>
+                <div className="quote-detail">Size: {quote.size}</div>
+                <div className="quote-detail">No of Ply: {quote.noOfPly}</div>
+                <div className="quote-detail">Paper Size: {quote.paperSize}</div>
+                <div className="quote-detail">Paper Type: {quote.paperType}</div>
+                <div className="quote-detail">Color Printing: {quote.colorPrinting}</div>
+                <div className="quote-detail">Color of Ply: {quote.colorForPly.join(", ")}</div>
+                <div className="quote-detail">
+                  Logo: {quote.logo ? <img src={quote.logo} alt="Uploaded Logo" className="logo-image" /> : "No logo uploaded"}
+                </div>
+                <div className="quote-price">
+                  <span>VATable Cost: {quote.vatableCost}</span>
+                  <br />
+                  <span>VAT amount (12%): {quote.vatAmount}</span>
+                  <br />
+                  <span>Total Amount: {quote.totalPrice}</span>
+                  <br />
+                  <span>Price per Booklet: {quote.unitPrice}</span>
+                  <br />
+                </div>
               </div>
-            </div>
-
-            <div className="quote-section">
-              <div className="quote-section-header">QUOTATION 2</div>
-              <div className="quote-detail">Name: Leila Roque</div>
-              <div className="quote-detail">Email: qajmroque@gmail.com</div>
-              <hr />
-
-              <div className="quote-detail">Title: Q2</div>
-              <div className="quote-detail">Product Selection: Delivery Receipt</div>
-              <div className="quote-detail">Quantity: *</div>
-              <div className="quote-detail">Size: *</div>
-              <div className="quote-detail">No of Ply: *</div>
-              <div className="quote-detail">Paper Size: *</div>
-              <div className="quote-detail">Paper Type: *</div>
-              <div className="quote-detail">Color Printing: *</div>
-              <div className="quote-detail">Color of Ply: *</div>
-              <div className="quote-detail">Logo: *</div>
-          
-              <div className="quote-price">
-                <span>VATable Cost: P134.50</span>
-                <br />
-                <span>VAT amount (12%): P13,450.00</span>
-                <br />
-                <span>Total Amount: P134.50</span>
-                <br />
-                <span>Price per Booklet: P13,450.00</span>
-                <br />
-              </div>
-            </div>
-
-
+            ))}
           </div>
         </div>
       </div>
       <FooterPage />
     </div>
   );
-}
+};
 
 export default AdminProfile;
