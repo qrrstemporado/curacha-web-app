@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from './App';
-import Services from './Pages/Services/Services';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup'; // Import the Signup component
 import Profile from './Pages/Profile/Profile';
@@ -12,8 +11,10 @@ import Sales from './Pages/Products/Invoices/Sales Invoice/Sales-Invoice';
 import Collection from './Pages/Products/Receipts/Collection Receipts/Collection-Receipt';
 import Official from './Pages/Products/Receipts/Official Receipts/Official-Receipt';
 import Delivery from './Pages/Products/Receipts/Delivery Receipts/Delivery-Receipt';
+import Acknowledgement from './Pages/Products/Receipts/Acknowledgement Receipts/Acknowledgement-Receipt';
 import Forms from './Pages/Products/Forms/Forms';
 import ReqQuote from './components/ReqQuote/ReqQuote';
+
 
 const router = createBrowserRouter([
   {
@@ -23,10 +24,6 @@ const router = createBrowserRouter([
   {
     path: "quote",
     element: <ReqQuote />,
-  },
-  {
-    path: "services",
-    element: <Services />,
   },
   {
     path: "login",
@@ -51,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "sales-invoice",
     element: <Sales />,
+  },
+  {
+    path: "acknowledgement-receipt",
+    element: <Acknowledgement/>,
   },
   {
     path: "collection-receipt",

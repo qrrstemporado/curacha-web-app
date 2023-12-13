@@ -425,19 +425,19 @@ const ReqQuote = () => {
               <div className="pricing-details">
                 <div className="pricing-row">
                   <span>VATable Cost</span>
-                  <span>{formData.vatableCost || "$0.00"}</span>
+                  <span>{formData.vatableCost || "₱0.00"}</span>
                 </div>
                 <div className="pricing-row">
                   <span>VAT amount (12%)</span>
-                  <span>{formData.vatAmount || "$0.00"}</span>
+                  <span>{formData.vatAmount || "₱0.00"}</span>
                 </div>
                 <div className="pricing-row">
                   <span>Total Amount</span>
-                  <span>{formData.totalPrice || "$0.00"}</span>
+                  <span>{formData.totalPrice || "₱0.00"}</span>
                 </div>
                 <div className="pricing-row">
                   <span>Price per Booklet</span>
-                  <span>{formData.unitPrice || "$0.00"}</span>
+                  <span>{formData.unitPrice || "₱0.00"}</span>
                 </div>
               </div>
               <button className="book-now-btn"onClick={handleBookNow}>Book Now</button>

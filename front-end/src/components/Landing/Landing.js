@@ -5,8 +5,10 @@ import cashInvoice from '../../assets/cash.svg';
 import billingInvoice from '../../assets/billing.svg';
 import salesInvoice from '../../assets/sales.svg';
 import collectionReceipt from '../../assets/collection.svg';
+import delveryReceipt from '../../assets/delivery.svg';
 import officialReceipt from '../../assets/official.svg';
 import forms from '../../assets/forms.svg';
+
 
 
 
@@ -22,6 +24,7 @@ const Landing = () => {
           <button className="quote-button" onClick={() => { window.location.href = '/quote' }}>GET A QUOTE</button>
         </div>
       </div>
+      <div id="services-container" className="services-container"></div>
       <div className="services-container"> 
         <h1>Our Services</h1>
         <p> A commercial printing service provider in the Philippines.<br/>Printing your requirements is now easier than ever. Here’s how it works:</p>
@@ -49,35 +52,35 @@ const Landing = () => {
       <div className="product-container2">
         <div className="product4">
           <img src={collectionReceipt} alt="Product 4"/>
-          <h3>Collection Receipt</h3>
+          <h3>Acknowledgement Receipt</h3>
           <p>Description of Product 4</p>
-          <button className="create-button" onClick={() => { window.location.href = '/collection-receipt' }}>CREATE</button>
+          <button className="create-button" onClick={() => { window.location.href = '/acknowledgement-receipt' }}>CREATE</button>
         </div>
         <div className="product5">
-          <img src={officialReceipt} alt="Product 5"/> 
-          <h3>Official Receipt</h3>
+          <img src={collectionReceipt} alt="Product 5"/> 
+          <h3>Collection Receipt</h3>
           <p>Description of Product 5</p>
-          <button className="create-button" onClick={() => { window.location.href = '/official-receipt' }}>CREATE</button>
+          <button className="create-button" onClick={() => { window.location.href = '/collection-receipt' }}>CREATE</button>
         </div>
         <div className="product6">
-          <img src={forms} alt="Product 6"/>
-          <h3>Forms</h3>
+          <img src={delveryReceipt} alt="Product 6"/>
+          <h3>Delivery Receipt</h3>
           <p>Description of Product 6</p>
-          <button className="create-button" onClick={() => { window.location.href = '/forms' }}>CREATE</button>
+          <button className="create-button" onClick={() => { window.location.href = '/delivery-receipt' }}>CREATE</button>
         </div>
       </div>
       <div className="product-container3">
         <div className="product7">
-          <img src={collectionReceipt} alt="Product 7"/>
-          <h3>Product 7</h3>
+          <img src={officialReceipt} alt="Product 7"/>
+          <h3>Official Receipt</h3>
           <p>Description of Product 7</p>
-          <button className="create-button" onClick={() => { window.location.href = '/' }}>CREATE</button>
+          <button className="create-button" onClick={() => { window.location.href = '/official-receipt' }}>CREATE</button>
         </div>
         <div className="product8">
-          <img src={officialReceipt} alt="Product 8"/> 
-          <h3>Product 8</h3>
+          <img src={forms} alt="Product 8"/> 
+          <h3>Forms</h3>
           <p>Description of Product 8</p>
-          <button className="create-button" onClick={() => { window.location.href = '/' }}>CREATE</button>
+          <button className="create-button" onClick={() => { window.location.href = '/forms' }}>CREATE</button>
         </div>
         <div className="product9">
           <img src={forms} alt="Product 9"/>

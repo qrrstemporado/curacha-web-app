@@ -1,5 +1,5 @@
 .intro-container {
-  height: 70vh;
+  height: 75vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -102,7 +102,8 @@
   font-family: Poppins-Bold;
   font-weight: 700;
   word-wrap: break-word;
-  margin-top: 60px;
+  margin-top: 5.5rem;
+
 }
 
 .services-container p {
